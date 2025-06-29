@@ -6,9 +6,10 @@ import { useForm } from 'react-hook-form';
 import { BaseInput } from '@/components/base/BaseInput';
 import { sendEmail } from '@/lib/sendEmail';
 import { BaseModal } from '@/components/base/BaseModal';
-import { alekseeva } from '@/config/person';
 
-export const Form = memo(() => {
+export const Form = memo(({ person }) => {
+    const { firstName, lastName, job, email, phone } = person;
+
     const regExpEmail = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const regExpPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
 
@@ -20,7 +21,7 @@ export const Form = memo(() => {
         control,
         handleSubmit,
         reset,
-        formState: { errors, isSubmitting},
+        formState: { errors, isSubmitting },
     } = useForm({
         defaultValues: {
             firstName: '',
@@ -36,11 +37,11 @@ export const Form = memo(() => {
     const onSubmit = async (data) => {
         const payload = {
             ...data,
-            person_lastName: alekseeva.lastName,
-            person_firstName: alekseeva.firstName,
-            person_job: alekseeva.job,
-            person_email: alekseeva.email,
-            person_phone: alekseeva.phone,
+            person_lastName: lastName,
+            person_firstName: firstName,
+            person_job: job,
+            person_email: email,
+            person_phone: phone,
         };
 
         const resStatus = await sendEmail(payload);
@@ -195,19 +196,32 @@ export const Form = memo(() => {
             </Box>
 
             {sendForm && (
-                <BaseModal title="Ваши контакты успешно отправлены" open={sendForm}
-                           handleClose={handleCloseSuccessMessage}
-                           color="var(--blue)">
-                    <DialogContentText id="alert-dialog-description" sx={{ color: 'var(--black)' }}>
-                        На вашу почту отправлены контакты "{`${alekseeva.lastName} ${alekseeva.firstName}`}"
+                <BaseModal
+                    title="Ваши контакты успешно отправлены"
+                    open={sendForm}
+                    handleClose={handleCloseSuccessMessage}
+                    color="var(--blue)"
+                >
+                    <DialogContentText
+                        id="alert-dialog-description"
+                        sx={{ color: 'var(--black)' }}
+                    >
+                        На вашу почту отправлены контакты "{`${lastName} ${firstName}`}"
                     </DialogContentText>
                 </BaseModal>
             )}
 
             {isError && (
-                <BaseModal title="Ошибка сервера!" open={isError} handleClose={handleCloseFailedMessage}
-                           color="var(--red)">
-                    <DialogContentText id="alert-dialog-description" sx={{ color: 'var(--black)' }}>
+                <BaseModal
+                    title="Ошибка сервера!"
+                    open={isError}
+                    handleClose={handleCloseFailedMessage}
+                    color="var(--red)"
+                >
+                    <DialogContentText
+                        id="alert-dialog-description"
+                        sx={{ color: 'var(--black)' }}
+                    >
                         Попробуйте позже
                     </DialogContentText>
                 </BaseModal>

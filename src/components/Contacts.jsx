@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { Box } from '@mui/material';
 import { BaseContactLink } from '@/components/base/BaseContactLink';
 
-export const Contacts = memo(({ info }) => {
-    const { phone, whatsappPhone, telegramPhone, email, contacts } = info;
+export const Contacts = memo(({ person }) => {
+    const { phone, whatsappPhone, telegramPhone, email, contacts } = person;
 
     return (
         <Box

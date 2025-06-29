@@ -2,11 +2,10 @@
 
 import { memo } from 'react';
 import { Avatar, Box, Typography } from '@mui/material';
-import { alekseeva } from '@/config/person';
 import { VCardDownloadButton } from '@/components/VCardDownloadButton';
 
-export const Person = memo(() => {
-    const { firstName, lastName, job, phone, email } = alekseeva;
+export const Person = memo(({person}) => {
+    const { firstName, lastName, job, phone, email, image } = person;
 
     return (
         <Box
@@ -18,7 +17,7 @@ export const Person = memo(() => {
             }}
         >
             <Avatar
-                src="./person.png"
+                src={image}
                 sx={{
                     width: 193,
                     height: 193,
@@ -34,7 +33,7 @@ export const Person = memo(() => {
                     fontWeight: 700,
                 }}
             >
-                {alekseeva.lastName}
+                {lastName}
             </Typography>
             <Typography
                 variant="h1"
@@ -45,7 +44,7 @@ export const Person = memo(() => {
                     marginBottom: '14px'
                 }}
             >
-                {alekseeva.firstName}
+                {firstName}
             </Typography>
             <Typography
                 sx={{
@@ -55,7 +54,7 @@ export const Person = memo(() => {
                     marginBottom: '27px'
                 }}
             >
-                {alekseeva.job}
+                {job}
             </Typography>
             <VCardDownloadButton
                 firstName={firstName}

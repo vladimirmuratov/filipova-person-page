@@ -10,6 +10,7 @@ export async function POST(request) {
         to: [
             process.env.ADDRESS_TO_1,
             process.env.ADDRESS_TO_2,
+            process.env.ADDRESS_TO_3,
         ],
         subject: `Поступила заявка на звонок: ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}`,
         html: ` <p style="font-weight: bold">Имя: <span style="font-weight: normal">${req?.firstName.length ? req?.firstName : 'Нет'}</span></p>
@@ -42,7 +43,7 @@ export async function POST(request) {
       const message2 = {
         from: process.env.ADDRESS_FROM,
         to: [req.email],
-        subject: `Контакты "${req.person_lastName} ${req.person_firstName}"`,
+        subject: `Контакт "${req.person_lastName} ${req.person_firstName}"`,
         html: `       <p style="font-weight: bold">Фамилия: <span style="font-weight: normal">${req?.person_lastName}</span></p>
                       <p style="font-weight: bold">Имя: <span style="font-weight: normal">${req?.person_firstName}</span></p>
                       <p style="font-weight: bold">Должность: <span style="font-weight: normal">${req?.person_job}</span></p>

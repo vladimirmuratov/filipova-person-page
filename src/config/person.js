@@ -1,4 +1,4 @@
-export const alekseeva = {
+export const person = {
     firstName: 'Екатерина Игоревна',
     lastName: 'Алексеева',
     job: 'Заведующий отделением, врач-терапевт кандидат медицинских наук',
@@ -6,6 +6,7 @@ export const alekseeva = {
     telegramPhone: '+7 (993) 337-73-84',
     whatsappPhone: '+7 (993) 337-73-84',
     email: 'Alekseeva-ei@fgu-obp.ru',
+    image: './person.png',
     contacts: [
         {
             id: 1,

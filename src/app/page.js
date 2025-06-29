@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { Header } from '@/components/Header';
 import { Person } from '@/components/Person';
 import { Contacts } from '@/components/Contacts';
-import { alekseeva } from '@/config/person';
+import { person } from '@/config/person';
 import { About } from '@/components/About';
 import { Form } from '@/components/Form';
 
@@ -28,10 +28,10 @@ export default function Home() {
                 }}
             >
                 <Header />
-                <Person />
-                <Contacts info={alekseeva} />
+                <Person person={person} />
+                <Contacts person={person} />
                 <About />
-                <Form/>
+                <Form person={person}/>
             </Box>
         </Box>
     );
