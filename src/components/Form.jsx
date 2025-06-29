@@ -11,7 +11,6 @@ import { alekseeva } from '@/config/person';
 export const Form = memo(() => {
     const regExpEmail = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const regExpPhone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-    const timeOut = 3000;
 
     const [isShowFields, setIsShowFields] = useState(false);
     const [sendForm, setSendForm] = useState(false);
@@ -20,8 +19,8 @@ export const Form = memo(() => {
     const {
         control,
         handleSubmit,
-        formState: { errors },
         reset,
+        formState: { errors, isSubmitting},
     } = useForm({
         defaultValues: {
             firstName: '',
@@ -180,6 +179,7 @@ export const Form = memo(() => {
                     </Typography>}
                     <Button
                         type="submit"
+                        loading={isSubmitting}
                         sx={{
                             backgroundColor: 'var(--white)',
                             color: 'var(--red)',
