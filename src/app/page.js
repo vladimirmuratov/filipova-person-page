@@ -18,7 +18,8 @@ export default function Home() {
                 component="section"
                 sx={{
                     margin: '0 auto',
-                    width: '704px',
+                    width: {xs: '100%', sm: '704px'},
+                    // maxWidth: '704px',
                     minHeight: '200vh',
                     boxShadow: 'rgba(0, 0, 0, 0.2) 0 4px 24px 0',
                     display: 'flex',

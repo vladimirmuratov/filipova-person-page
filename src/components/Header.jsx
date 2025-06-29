@@ -8,7 +8,7 @@ export const Header = memo(() => {
             component="header"
             sx={{
                 display: 'flex',
-                padding: '20px 34px 0',
+                padding: {xs: '10px 17px 0', sm: '20px 34px 0'},
                 width: '100%',
             }}
         >
@@ -19,6 +19,7 @@ export const Header = memo(() => {
             >
                 <Image
                     src="./logo.svg"
+                    layout="responsive"
                     alt="logo"
                     width={134}
                     height={94}
@@ -31,7 +32,8 @@ export const Header = memo(() => {
             >
                 <Image
                     src="./name.svg"
-                    alt="name"
+                    layout="responsive"
+                    alt="company"
                     width={475}
                     height={50}
                 />

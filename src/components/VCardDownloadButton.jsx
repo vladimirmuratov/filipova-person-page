@@ -42,7 +42,7 @@ END:VCARD
                 backgroundColor: 'var(--red)',
                 color: 'var(--white)',
                 borderRadius: '999px',
-                width: { xs: '60%', sm: '100%' },
+                width: { xs: '100%', sm: '100%' },
                 padding: '18px 0',
                 boxShadow: 'rgba(0, 0, 0, 0.25) 0 4px 4px 0',
             }}

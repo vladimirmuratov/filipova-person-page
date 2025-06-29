@@ -75,7 +75,8 @@ export const Form = memo(() => {
                 sx={{
                     borderRadius: '20px',
                     boxShadow: 'rgb(215, 215, 215) 0 0 16px 0',
-                    padding: '31px 76px 25px',
+                    // padding: '31px 76px 25px',
+                    padding: { xs: '25px 30px 25px', sm: '31px 76px 25px' },
                     width: { xs: '90%', sm: '75%' },
                     marginBottom: '100px',
                     // height: '440px',
@@ -184,7 +185,7 @@ export const Form = memo(() => {
                             color: 'var(--red)',
                             border: '1px solid var(--blue)',
                             borderRadius: '999px',
-                            width: { xs: '60%', sm: '100%' },
+                            width: { xs: '100%', sm: '100%' },
                             padding: '18px 0',
                         }}
                     >
