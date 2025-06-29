@@ -51,7 +51,21 @@ export async function POST(request) {
                `,
       };
 
-      transporter.sendMail(message2);
+        const transporter2 = nodemailer.createTransport({
+            service: 'mail.ru',
+            auth: {
+                user: process.env.ADDRESS_FROM,
+                pass: process.env.PASSWORD,
+            },
+        });
+
+        try {
+            await transporter2.sendMail(message2);
+        } catch (err) {
+            error = true;
+        }
+
+
     }
 
     return error
